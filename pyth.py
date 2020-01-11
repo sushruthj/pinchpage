@@ -148,9 +148,9 @@ def command_default(m):
     file_info = bot.get_file(fileID)
     file ="https://api.telegram.org/file/bot"+TOKEN+"/"+file_info.file_path
     bot.send_message(m.chat.id, file)
-    import cv2
-    image = cv2.imread(file, mode='RGB')
-    print type(im)
+    from matplotlib.image import imread
+    img = imread(file)
+    print(type(img))
     scanner = zbar.Scanner()
     
 bot.polling()
