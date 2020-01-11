@@ -131,9 +131,9 @@ def command_default(m):
     bot.send_message(m.chat.id, "I don't understand \"" + m.text + "\"\nMaybe try the help page at /help")
     
 @bot.message_handler(func=lambda message: True, content_types=['photo'])
-def photo_handler(bt, update):
-    file = bt.getFile(update.message.voice.file_id)
-    print ("file_id: " + str(update.message.voice.file_id))
+#def photo_handler(bt, update):
+#    file = bt.getFile(update.message.voice.file_id)
+#    print ("file_id: " + str(update.message.voice.file_id))
     
 def command_default(m):
     # this is the standard reply to a normal message
