@@ -159,6 +159,15 @@ def command_default(m):
     decodeval=(decode(Image.open('xyz.jpeg')))
     bardata=decodeval[0].data
     print bardata
+    barcodes = pyzbar.decode(Image.open('xyz.jpeg'))
+
+    for barcode in barcodes:
+        (x,y,w,h) = barcode.rect
+        cv2.rectangle(image, (x,y), (x+w, y+h), (0, 0, 255), 2)
+        barcodeData = barcode.data.decode("utf-8")
+        barcodeType = barcode.type
+        text = "{} ({})".format(barcodeData, barcodeType)
+        print(text)
     #isbndata=editions(bardata, service='merge')
     
     
