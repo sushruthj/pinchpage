@@ -148,8 +148,17 @@ def command_default(m):
     file_info = bot.get_file(fileID)
     file ="https://api.telegram.org/file/bot"+TOKEN+"/"+file_info.file_path
     bot.send_message(m.chat.id, file)
-    image_pygame_surface = pygame.image.load(file)
-    return pygame.surfarray.array3d(image_pygame_surface)
-
+    scanner = zbar.ImageScanner()
+    # configure the reader
+    scanner.parse_config('enable')
+    # obtain image data
+    pil = Image.fromarray(file)
+    width, height = pil.size
+    raw = pil.tostring()
+    # wrap image data
+    image = zbar.Image(width, height, 'Y800', raw)
+    # scan the image for barcodes
+    scanner.scan(image)
+    return image 
 
 bot.polling()
