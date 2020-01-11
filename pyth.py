@@ -152,10 +152,13 @@ def command_default(m):
     file ="https://api.telegram.org/file/bot"+TOKEN+"/"+file_info.file_path
     bot.send_message(m.chat.id, file)
     
+    filename=file_info.file_path
+    print (filename)
+    
     outfile="./home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
     urllib.urlretrieve(file, "xyz.jpeg")  
     
-    photo = open('xyz.jpg', 'rb')
+    photo = open('xyz.jpeg', 'rb')
     bot.send_photo(chat_id, photo)
     
     image_pygame_surface = pygame.image.load(file)
