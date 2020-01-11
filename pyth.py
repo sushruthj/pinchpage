@@ -3,6 +3,9 @@ import time
 import requests
 import telebot
 import telegram
+import zbar
+import zbar.misc
+import pathlib
 from telegram.ext import Updater
 from telebot import types
 
@@ -134,6 +137,9 @@ def command_default(m):
 #def photo_handler(bt, update):
 #    file = bt.getFile(update.message.voice.file_id)
 #    print ("file_id: " + str(update.message.voice.file_id))
+def read_image(image_filename):
+                image_pygame_surface = pygame.image.load(image_filename)
+                return pygame.surfarray.array3d(image_pygame_surface)
     
 def command_default(m):
     # this is the standard reply to a normal message
