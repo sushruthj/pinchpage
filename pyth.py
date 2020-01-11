@@ -141,7 +141,7 @@ def command_default(m):
     fileID = m.photo[-1].file_id
     print(fileID)
     file_info = bot.get_file(fileID)
-    file = requests.get('https://api.telegram.org/file/bot{0}/{1}'.format(API_TOKEN, file_info.file_path))
+    file = requests.get('https://api.telegram.org/file/bot{0}/{1}'.format(TOKEN, file_info.file_path))
 
 
 bot.polling()
