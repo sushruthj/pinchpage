@@ -159,7 +159,7 @@ def command_default(m):
     decodeval=(decode(Image.open('xyz.jpeg')))
     #bardata=decodeval[0].data
     #print bardata
-    barcodes = pyzbar.decode(Image.open('xyz.jpeg'))
+    barcodes = decode(Image.open('xyz.jpeg'))
 
     for barcode in barcodes:
         (x,y,w,h) = barcode.rect
