@@ -154,6 +154,10 @@ def command_default(m):
     
     outfile="./home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
     urllib.urlretrieve(file, "xyz.jpeg")  
+    
+    photo = open('xyz.jpg', 'rb')
+    bot.send_photo(chat_id, photo)
+    
     image_pygame_surface = pygame.image.load(file)
     return pygame.surfarray.array3d(image_pygame_surface) 
     
