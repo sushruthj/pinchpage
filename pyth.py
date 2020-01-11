@@ -138,10 +138,8 @@ def command_default(m):
 #def photo_handler(bt, update):
 #    file = bt.getFile(update.message.voice.file_id)
 #    print ("file_id: " + str(update.message.voice.file_id))
-def read_image(image_filename):
-                image_pygame_surface = pygame.image.load(image_filename)
-                return pygame.surfarray.array3d(image_pygame_surface)
-    
+
+   
 def command_default(m):
     # this is the standard reply to a normal message
     bot.send_message(m.chat.id, "I don't understand this photo.")
@@ -150,6 +148,8 @@ def command_default(m):
     file_info = bot.get_file(fileID)
     file ="https://api.telegram.org/file/bot"+TOKEN+"/"+file_info.file_path
     bot.send_message(m.chat.id, file)
+    image_pygame_surface = pygame.image.load(file)
+    return pygame.surfarray.array3d(image_pygame_surface)
 
 
 bot.polling()
