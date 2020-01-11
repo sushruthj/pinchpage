@@ -1,4 +1,4 @@
-
+from io import BytesIO
 import time
 import requests
 import telebot
