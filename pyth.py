@@ -1,8 +1,7 @@
 
 import time
 
-import telegram
-from telegram.ext import Updater
+
 
 import telebot
 from telebot import types
