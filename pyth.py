@@ -167,9 +167,9 @@ def command_default(m):
     cv2.waitKey(0)
     barcodes = decode(image)
     print barcodes
-    barcodeDatap = barcode.data.decode("utf-8")
+    #barcodeDatap = barcode.data.decode("utf-8")
     #isbndata=editions(barcodeDatap, service='merge')  
-    print isbndata
+    #print isbndata
     for barcode in barcodes:
         (x,y,w,h) = barcode.rect
         cv2.rectangle(image, (x,y), (x+w, y+h), (0, 0, 255), 2)
