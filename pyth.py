@@ -152,9 +152,9 @@ def command_default(m):
     file ="https://api.telegram.org/file/bot"+TOKEN+"/"+file_info.file_path
     bot.send_message(m.chat.id, file)
     
-    
-    urllib.urlretrieve(file, "./home/susruthanvesh/tbt/pics/"+fileID+".jpeg")  
     outfile="/home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
+    urllib.urlretrieve(file, outfile)  
+    
     
     from scipy import misc
     filereq = requests.get(outfile)
