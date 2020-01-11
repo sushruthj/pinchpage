@@ -183,6 +183,8 @@ def command_default(m):
         descrp=isbnlib.meta(barcodeData)
         print barcodeData
         print(descrp)
+        book=descrp['Title']
+        author=descrip['authors']
         
         
         
@@ -191,7 +193,7 @@ def command_default(m):
      #   print("This is supposedly: "+r.json()['ISBN:'+barcodeData]['title'])
      #   print('----by----')
      #   print(r.json()['ISBN:'+barcodeData]['authors'][0]['name'])
-        bot.send_message(m.chat.id, "This ISBN is supposedly: "+text)
+        bot.send_message(m.chat.id, "This ISBN is supposedly: "+book+' by '+'author')
        # bot.send_message(m.chat.id, "Read about it at: "+'http://openlibrary.org/api/books?bibkeys=ISBN:'+barcodeData+"&format=json&jscmd=data")
             
     
