@@ -168,7 +168,7 @@ def command_default(m):
     barcodes = decode(image)
     print barcodes
     barcodeDatap = barcode.data.decode("utf-8")
-    isbndata=editions(barcodeDatap, service='merge')  
+    #isbndata=editions(barcodeDatap, service='merge')  
     print isbndata
     for barcode in barcodes:
         (x,y,w,h) = barcode.rect
