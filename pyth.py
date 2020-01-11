@@ -1,5 +1,6 @@
 from io import BytesIO
 import urllib
+from pyzbar.pyzbar import decode
 import time
 import requests
 import telebot
@@ -154,18 +155,8 @@ def command_default(m):
     outfile="./home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
     urllib.urlretrieve(file, "xyz.jpeg")  
     
-    scanner = zbar.Scanner()
+    decode(Image.open('xyz.jpeg'))
 
-    # configure the reader
-   
-
-# obtain image data
-    url_file = urlopen(file)
-    if url_file.getcode() != 200:
-       return False
-    image_buffer = url_file.read()
-        # Crop, resize and save image
-    image = Image.open(BytesIO(image_buffer)).convert('RGB')
 
    
     import image_to_numpy
