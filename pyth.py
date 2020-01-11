@@ -155,12 +155,7 @@ def command_default(m):
     outfile="./home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
     urllib.urlretrieve(file, "xyz.jpeg")  
     
-    print (decode(Image.open('xyz.jpeg')))
-
-
-   
-    import image_to_numpy
-    img = image_to_numpy.load_image_file('xyz.jpeg')
+    print (decode(Image.open('xyz.jpeg')).['data'])
     
     
     photo = open('xyz.jpeg', 'rb')
