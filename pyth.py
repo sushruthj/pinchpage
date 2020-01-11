@@ -44,6 +44,8 @@ def listener(messages):
         if m.content_type == 'text':
             # print the sent message to the console
             print(str(m.chat.first_name) + " [" + str(m.chat.id) + "]: " + m.text)
+        elid m.content_type == 'photo':
+            print ("Photo Received")
 
 
 bot = telebot.TeleBot(TOKEN)
