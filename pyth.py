@@ -140,7 +140,7 @@ def command_default(m):
     bot.send_message(m.chat.id, "I don't understand this photo.")
     fileID = m.photo[-1].file_id
     print(fileID)
-    file_info = tb.get_file(fileID)
+    file_info = bot.get_file(fileID)
 
 
 bot.polling()
