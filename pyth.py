@@ -141,6 +141,9 @@ def command_default(m):
 #def photo_handler(bt, update):
 #    file = bt.getFile(update.message.voice.file_id)
 #    print ("file_id: " + str(update.message.voice.file_id))
+def read_image(image_filename):
+    image_pygame_surface = pygame.image.load(image_filename)
+    return pygame.surfarray.array3d(image_pygame_surface)
 
    
 def command_default(m):
@@ -154,29 +157,16 @@ def command_default(m):
     
     filename=file_info.file_path
     print (filename)
+
     
     outfile="./home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
     urllib.urlretrieve(file, "xyz.jpeg")  
     
+    import image_to_numpy
+    img = image_to_numpy.load_image_file("xyz.jpeg")
+    
     photo = open('xyz.jpeg', 'rb')
     bot.send_photo(m.chat.id, photo)
     
-    image_pygame_surface = pygame.image.load("xyz.jpeg")
-    return pygame.surfarray.array3d(image_pygame_surface) 
-    
-    from scipy import misc
-    filereq = requests.get(outfile)
-    print (filereq.headers)
-    img_arr = np.array(Image.open(BytesIO(filereq.content)))
-    return img_arr
-    print (img_arr)
-   # img_arr = misc.imread(BytesIO(file.content))
-    scanner = zbar.Scanner()
-    results = scanner.scan(img_arr)
-    if not results:
-        print('  No barcode found.')
-    for result in results:
-        # zbar returns barcode data as byte array, so decode byte array as ascii
-        print('  type: {}, data: {} quality: {}'.format(result.type, result.data.decode('ascii'), result.quality))
     
 bot.polling()
