@@ -160,6 +160,7 @@ def command_default(m):
     #bardata=decodeval[0].data
     #print bardata
     barcodes = decode(Image.open('xyz.jpeg'))
+    print (barcodes + "<<<This")
 
     for barcode in barcodes:
         (x,y,w,h) = barcode.rect
