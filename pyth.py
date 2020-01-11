@@ -159,5 +159,10 @@ def command_default(m):
    # img_arr = misc.imread(BytesIO(file.content))
     scanner = zbar.Scanner()
     results = scanner.scan(img_arr)
+    if not results:
+        print('  No barcode found.')
+    for result in results:
+        # zbar returns barcode data as byte array, so decode byte array as ascii
+        print('  type: {}, data: {} quality: {}'.format(result.type, result.data.decode('ascii'), result.quality))
     
 bot.polling()
