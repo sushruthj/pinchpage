@@ -184,7 +184,7 @@ def command_default(m):
         print barcodeData
         print(descrp)
         book=descrp['Title']
-        author=descrip['authors']
+        author=descrp['authors']
         
         
         
