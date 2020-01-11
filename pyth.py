@@ -175,15 +175,18 @@ def command_default(m):
         cv2.rectangle(image, (x,y), (x+w, y+h), (0, 0, 255), 2)
         barcodeData = barcode.data.decode("utf-8")
         barcodeType = barcode.type
+        
         text = "{} ({})".format(barcodeData, barcodeType)
+        textisb="{}".format(barcodeData)
+        descrp=isbnlib.desc(textisb)
         print(text)
         cv2.putText(image, text, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
         r = requests.get('http://openlibrary.org/api/books?bibkeys=ISBN:'+barcodeData+"&format=json&jscmd=data")
         print("This is supposedly: "+r.json()['ISBN:'+barcodeData]['title'])
      #   print('----by----')
      #   print(r.json()['ISBN:'+barcodeData]['authors'][0]['name'])
-        bot.send_message(m.chat.id, "This is supposedly: "+r.json()['ISBN:'+barcodeData]['title'])
-        bot.send_message(m.chat.id, "Read about it at: "+'http://openlibrary.org/api/books?bibkeys=ISBN:'+barcodeData+"&format=json&jscmd=data")
+        bot.send_message(m.chat.id, "This ISBN is supposedly: "+text)
+       # bot.send_message(m.chat.id, "Read about it at: "+'http://openlibrary.org/api/books?bibkeys=ISBN:'+barcodeData+"&format=json&jscmd=data")
             
     
     
