@@ -1,5 +1,6 @@
 from io import BytesIO
 import urllib
+import isbnlib
 from pyzbar.pyzbar import decode
 import time
 import requests
@@ -158,11 +159,12 @@ def command_default(m):
     decodeval=(decode(Image.open('xyz.jpeg')))
     bardata=decodeval[0].data
     print bardata
+    isbndata=editions(bardata, service='merge')
     
     
     
-    photo = open('xyz.jpeg', 'rb')
-    bot.send_photo(m.chat.id, photo)
+  #  photo = open('xyz.jpeg', 'rb')
+  #  bot.send_photo(m.chat.id, photo)
     
     
 bot.polling()
