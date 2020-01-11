@@ -157,6 +157,7 @@ def command_default(m):
     return img_arr
     print (img_arr)
    # img_arr = misc.imread(BytesIO(file.content))
-   # scanner = zbar.Scanner()
+    scanner = zbar.Scanner()
+    results = scanner.scan(img_arr)
     
 bot.polling()
