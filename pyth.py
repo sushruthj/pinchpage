@@ -148,17 +148,9 @@ def command_default(m):
     file_info = bot.get_file(fileID)
     file ="https://api.telegram.org/file/bot"+TOKEN+"/"+file_info.file_path
     bot.send_message(m.chat.id, file)
-    scanner = zbar.ImageScanner()
-    # configure the reader
-    scanner.parse_config('enable')
-    # obtain image data
-    pil = Image.fromarray(file)
-    width, height = pil.size
-    raw = pil.tostring()
-    # wrap image data
-    image = zbar.Image(width, height, 'Y800', raw)
-    # scan the image for barcodes
-    scanner.scan(image)
-    return image 
-
+    import cv2
+    image = cv2.imread(file, mode='RGB')
+    print type(im)
+    scanner = zbar.Scanner()
+    
 bot.polling()
