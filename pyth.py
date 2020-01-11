@@ -154,13 +154,22 @@ def command_default(m):
     outfile="./home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
     urllib.urlretrieve(file, "xyz.jpeg")  
     
+    scanner = zbar.Scanner()
+
+    # configure the reader
+    scanner.parse_config('enable')
+
+# obtain image data
+    url_file = urlopen(file)
+    if url_file.getcode() != 200:
+       return False
+    image_buffer = url_file.read()
+        # Crop, resize and save image
+    image = Image.open(BytesIO(image_buffer)).convert('RGB')
+
+   
     import image_to_numpy
     img = image_to_numpy.load_image_file('xyz.jpeg')
-    scanner = zbar.Scanner()
-    results = scanner.scan(img)
-    for result in results:
-        if result.type == 'UPC-A':
-            print(result.data, zbar.misc.upca_is_valid(result.data.decode('ascii')))
     
     
     photo = open('xyz.jpeg', 'rb')
