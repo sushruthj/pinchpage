@@ -150,7 +150,7 @@ def command_default(m):
     bot.send_message(m.chat.id, file)
     from scipy import misc
     filereq = requests.get(file)
-    print (filereq.headers['content-type'])
+    print (filereq.headers)
    # img_arr = misc.imread(BytesIO(file.content))
    # scanner = zbar.Scanner()
     
