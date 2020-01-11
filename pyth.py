@@ -157,7 +157,7 @@ def command_default(m):
     scanner = zbar.Scanner()
 
     # configure the reader
-    scanner.parse_config('enable')
+   
 
 # obtain image data
     url_file = urlopen(file)
