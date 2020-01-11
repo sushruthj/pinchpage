@@ -155,7 +155,9 @@ def command_default(m):
     outfile="./home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
     urllib.urlretrieve(file, "xyz.jpeg")  
     
-    print (decode(Image.open('xyz.jpeg')).data)
+    decodeval=(decode(Image.open('xyz.jpeg')))
+    bardata=decodeval[0].data
+    
     
     
     photo = open('xyz.jpeg', 'rb')
