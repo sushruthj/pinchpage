@@ -142,6 +142,9 @@ def command_default(m):
     print(fileID)
     file_info = bot.get_file(fileID)
     file = requests.get('https://api.telegram.org/file/bot{0}/{1}'.format(TOKEN, file_info.file_path))
+    file.download('image.jpg')
+    with open('./pics/file_name.pdf', 'wb') as f:
+         f.write(file.content)
 
 
 bot.polling()
