@@ -157,8 +157,11 @@ def command_default(m):
     urllib.urlretrieve(file, "xyz.jpeg")  
     
     decodeval=(decode(Image.open('xyz.jpeg')))
-    bardata=decodeval[0].data
-    print bardata
+    #bardata=decodeval[0].data
+    #print bardata
+    image = cv2.imread('xyz.jpeg')
+    cv2.imshow("xyz.jpeg", image)
+    cv2.waitKey(0)
 
     #isbndata=editions(bardata, service='merge')
     
