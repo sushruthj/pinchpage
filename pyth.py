@@ -142,7 +142,7 @@ def command_default(m):
     print(fileID)
     file_info = bot.get_file(fileID)
     file = requests.get('https://api.telegram.org/file/bot{0}/{1}'.format(TOKEN, file_info.file_path))
-    print (file_info)
+    print ("https://api.telegram.org/file/bot"+TOKEN+"/"+file_info.file_path)
 
 
 bot.polling()
