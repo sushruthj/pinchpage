@@ -180,7 +180,7 @@ def command_default(m):
         
         text = "{} ({})".format(barcodeData, barcodeType)
         textisb="{}".format(barcodeData)
-        descrp=isbnlib.meta(barcodeData)
+        descrp=isbnlib.meta(barcodeData, service='goob')
         print barcodeData
         print(descrp)
         book=descrp['Title']
