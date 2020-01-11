@@ -182,7 +182,7 @@ def command_default(m):
         print(text)
         cv2.putText(image, text, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
         r = requests.get('http://openlibrary.org/api/books?bibkeys=ISBN:'+barcodeData+"&format=json&jscmd=data")
-        print("This is supposedly: "+r.json()['ISBN:'+barcodeData]['title'])
+     #   print("This is supposedly: "+r.json()['ISBN:'+barcodeData]['title'])
      #   print('----by----')
      #   print(r.json()['ISBN:'+barcodeData]['authors'][0]['name'])
         bot.send_message(m.chat.id, "This ISBN is supposedly: "+text)
