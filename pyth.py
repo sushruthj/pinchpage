@@ -182,7 +182,8 @@ def command_default(m):
         print(r.json()['ISBN:'+barcodeData]['title'])
         print('----by----')
         print(r.json()['ISBN:'+barcodeData]['authors'][0]['name'])
-      
+        bot.send_message(m.chat.id, r.json()['ISBN:'+barcodeData]['title']+' by '+r.json()['ISBN:'+barcodeData]['authors'][0]['name'])
+            
     
     
     
