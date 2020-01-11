@@ -1,8 +1,6 @@
 
 import time
-
-
-
+import requests
 import telebot
 from telebot import types
 
@@ -134,7 +132,7 @@ def command_default(m):
 def command_default(m):
     # this is the standard reply to a normal message
     bot.send_message(m.chat.id, "I don't understand this photo.")
-    print (m.get_file(file_id))
+    print (bot.get_file(file_id))
 
 
 bot.polling()
