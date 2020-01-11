@@ -164,6 +164,7 @@ def command_default(m):
    #cv2.imshow("xyz.jpeg", image)
     cv2.waitKey(0)
     barcodes = pyzbar.decode(image)
+    print barcodes
 
     #isbndata=editions(bardata, service='merge')
     
