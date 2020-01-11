@@ -6,6 +6,7 @@ import telegram
 import zbar
 import zbar.misc
 import pathlib
+import pygame
 from telegram.ext import Updater
 from telebot import types
 
