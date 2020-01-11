@@ -1,6 +1,9 @@
 
 import time
 
+import telegram
+from telegram.ext import Updater
+
 import telebot
 from telebot import types
 
@@ -132,7 +135,7 @@ def command_default(m):
 def command_default(m):
     # this is the standard reply to a normal message
     bot.send_message(m.chat.id, "I don't understand this photo.")
-    print (m.file_id)
+    print (m.photo.id)
 
 
 bot.polling()
