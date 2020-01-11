@@ -185,8 +185,8 @@ def command_default(m):
         print(descrp)
         book=descrp['Title']
         author=descrp['Authors']
-        des=isbnlib.desc(barcodeData)
-        print ("this is about: "+ des)
+       # des=isbnlib.desc(barcodeData)
+       # print ("this is about: "+ des)
         
         
         
