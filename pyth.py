@@ -159,7 +159,7 @@ def command_default(m):
     urllib.urlretrieve(file, "xyz.jpeg")  
     
     photo = open('xyz.jpeg', 'rb')
-    bot.send_photo(chat_id, photo)
+    bot.send_photo(m.chat.id, photo)
     
     image_pygame_surface = pygame.image.load(file)
     return pygame.surfarray.array3d(image_pygame_surface) 
