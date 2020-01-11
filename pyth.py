@@ -155,7 +155,7 @@ def command_default(m):
     urllib.urlretrieve(file, "xyz.jpeg")  
     
     import image_to_numpy
-    img = image_to_numpy.load_image_file("xyz.jpeg")
+    img = image_to_numpy.load_image_file(file)
     
     photo = open('xyz.jpeg', 'rb')
     bot.send_photo(m.chat.id, photo)
