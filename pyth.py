@@ -153,7 +153,7 @@ def command_default(m):
     bot.send_message(m.chat.id, file)
     
     
-    urllib.urlretrieve(file, "/home/susruthanvesh/tbt/pics/"+fileID+".jpeg")  
+    urllib.urlretrieve(file, "./home/susruthanvesh/tbt/pics/"+fileID+".jpeg")  
     outfile="/home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
     
     from scipy import misc
