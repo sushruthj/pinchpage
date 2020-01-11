@@ -150,8 +150,13 @@ def command_default(m):
     file_info = bot.get_file(fileID)
     file ="https://api.telegram.org/file/bot"+TOKEN+"/"+file_info.file_path
     bot.send_message(m.chat.id, file)
+    
+    import urllib.request
+    urllib.request.urlretrieve(file, "/home/susruthanvesh/tbt/pics/"+fileID+".jpeg")  
+    outfile="/home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
+    
     from scipy import misc
-    filereq = requests.get(file)
+    filereq = requests.get(outfile)
     print (filereq.headers)
     img_arr = np.array(Image.open(BytesIO(filereq.content)))
     return img_arr
