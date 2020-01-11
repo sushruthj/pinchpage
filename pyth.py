@@ -1,4 +1,5 @@
 from io import BytesIO
+import urllib
 import time
 import requests
 import telebot
@@ -151,8 +152,8 @@ def command_default(m):
     file ="https://api.telegram.org/file/bot"+TOKEN+"/"+file_info.file_path
     bot.send_message(m.chat.id, file)
     
-    import urllib.request
-    urllib.request.urlretrieve(file, "/home/susruthanvesh/tbt/pics/"+fileID+".jpeg")  
+    
+    urllib.urlretrieve(file, "/home/susruthanvesh/tbt/pics/"+fileID+".jpeg")  
     outfile="/home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
     
     from scipy import misc
