@@ -139,6 +139,7 @@ def command_default(m):
     # this is the standard reply to a normal message
     bot.send_message(m.chat.id, "I don't understand this photo.")
     fileID = m.photo[-1].file_id
+    print(fileID)
 
 
 bot.polling()
