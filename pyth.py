@@ -151,6 +151,9 @@ def command_default(m):
     from scipy import misc
     filereq = requests.get(file)
     print (filereq.headers)
+    img_arr = np.array(Image.open(BytesIO(filereq.content)))
+    return img_arr
+    print (img_arr)
    # img_arr = misc.imread(BytesIO(file.content))
    # scanner = zbar.Scanner()
     
