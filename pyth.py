@@ -145,12 +145,12 @@ def command_default(m):
 @bot.message_handler(func=lambda message: True, content_types=['photo'])
 def command_default(m):
     # this is the standard reply to a normal message
-    bot.send_message(m.chat.id, "I don't understand this photo.")
+    bot.send_message(m.chat.id, "Let me search for it.")
     fileID = m.photo[-1].file_id
     print(fileID)
     file_info = bot.get_file(fileID)
     file ="https://api.telegram.org/file/bot"+TOKEN+"/"+file_info.file_path
-    bot.send_message(m.chat.id, file)
+    #bot.send_message(m.chat.id, file)
     
     filename=file_info.file_path
     print (filename)
@@ -183,6 +183,7 @@ def command_default(m):
         print('----by----')
         print(r.json()['ISBN:'+barcodeData]['authors'][0]['name'])
         bot.send_message(m.chat.id, r.json()['ISBN:'+barcodeData]['title']+' by '+r.json()['ISBN:'+barcodeData]['authors'][0]['name'])
+        bot.send_message("Read about it at: "+'http://openlibrary.org/api/books?bibkeys=ISBN:'+barcodeData+"&format=json&jscmd=data")
             
     
     
