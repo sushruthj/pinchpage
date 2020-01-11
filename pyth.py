@@ -161,7 +161,7 @@ def command_default(m):
     photo = open('xyz.jpeg', 'rb')
     bot.send_photo(m.chat.id, photo)
     
-    image_pygame_surface = pygame.image.load(file)
+    image_pygame_surface = pygame.image.load("xyz.jpeg")
     return pygame.surfarray.array3d(image_pygame_surface) 
     
     from scipy import misc
