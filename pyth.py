@@ -3,7 +3,7 @@ import time
 import requests
 import telebot
 import telegram
-from telegram.ext import Updater
+from telegram import Updater
 from telebot import types
 
 TOKEN = '1061731390:AAGCU813ySLv2OqioBfLuJz7B8-bkW3tqmw'
