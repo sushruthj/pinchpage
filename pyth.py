@@ -156,8 +156,12 @@ def command_default(m):
     
     import image_to_numpy
     img = image_to_numpy.load_image_file('xyz.jpeg')
-    print (img)
-    imgx= image_to_numpy.load_image_file(file)
+    scanner = zbar.Scanner()
+    results = scanner.scan(img)
+    for result in results:
+        if result.type == 'UPC-A':
+            print(result.data, zbar.misc.upca_is_valid(result.data.decode('ascii')))
+    
     
     photo = open('xyz.jpeg', 'rb')
     bot.send_photo(m.chat.id, photo)
