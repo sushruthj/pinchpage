@@ -183,7 +183,7 @@ def command_default(m):
         print('----by----')
         print(r.json()['ISBN:'+barcodeData]['authors'][0]['name'])
         bot.send_message(m.chat.id, r.json()['ISBN:'+barcodeData]['title']+' by '+r.json()['ISBN:'+barcodeData]['authors'][0]['name'])
-        bot.send_message("Read about it at: "+'http://openlibrary.org/api/books?bibkeys=ISBN:'+barcodeData+"&format=json&jscmd=data")
+        bot.send_message(m.chat.id, "Read about it at: "+'http://openlibrary.org/api/books?bibkeys=ISBN:'+barcodeData+"&format=json&jscmd=data")
             
     
     
