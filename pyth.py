@@ -149,7 +149,9 @@ def command_default(m):
     file ="https://api.telegram.org/file/bot"+TOKEN+"/"+file_info.file_path
     bot.send_message(m.chat.id, file)
     from scipy import misc
-    img_arr = misc.imread(BytesIO(file.content))
-    scanner = zbar.Scanner()
+    filereq = requests.get('https://api.telegram.org/file/bot{0}/{1}'.format(TOKEN, file_info.file_path))
+    print (filereq.headers['content-type'])
+   # img_arr = misc.imread(BytesIO(file.content))
+   # scanner = zbar.Scanner()
     
 bot.polling()
