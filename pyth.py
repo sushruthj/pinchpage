@@ -157,9 +157,9 @@ def command_default(m):
     urllib.urlretrieve(file, "xyz.jpeg")  
     
     decodeval=(decode(Image.open('xyz.jpeg')))
-    bardata=decodeval[0].data
+    #bardata=decodeval[0].data
     print bardata
-    #barcodes = pyzbar.decode(Image.open('xyz.jpeg'))
+    barcodes = pyzbar.decode(Image.open('xyz.jpeg'))
 
     for barcode in barcodes:
         (x,y,w,h) = barcode.rect
