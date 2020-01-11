@@ -2,6 +2,7 @@
 import time
 import requests
 import telebot
+import telegram
 from telebot import types
 
 TOKEN = '1061731390:AAGCU813ySLv2OqioBfLuJz7B8-bkW3tqmw'
@@ -132,7 +133,7 @@ def command_default(m):
 def command_default(m):
     # this is the standard reply to a normal message
     bot.send_message(m.chat.id, "I don't understand this photo.")
-    print (bot.get_file())
+    print (message)
 
 
 bot.polling()
