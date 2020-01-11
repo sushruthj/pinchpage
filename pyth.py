@@ -1,6 +1,7 @@
 from io import BytesIO
 import urllib
 import isbnlib
+import cv2
 from pyzbar.pyzbar import decode
 import time
 import requests
