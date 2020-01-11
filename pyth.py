@@ -179,6 +179,7 @@ def command_default(m):
         text = "{} ({})".format(barcodeData, barcodeType)
         textisb="{}".format(barcodeData)
         descrp=isbnlib.desc(textisb)
+        print descrp
         print(text)
         cv2.putText(image, text, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
         r = requests.get('http://openlibrary.org/api/books?bibkeys=ISBN:'+barcodeData+"&format=json&jscmd=data")
