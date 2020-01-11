@@ -161,8 +161,9 @@ def command_default(m):
     #bardata=decodeval[0].data
     #print bardata
     image = cv2.imread('xyz.jpeg')
-    cv2.imshow("xyz.jpeg", image)
+   #cv2.imshow("xyz.jpeg", image)
     cv2.waitKey(0)
+    barcodes = pyzbar.decode(image)
 
     #isbndata=editions(bardata, service='merge')
     
