@@ -9,6 +9,7 @@ import pathlib
 import pygame
 from telegram.ext import Updater
 from telebot import types
+import numpy as np
 
 TOKEN = '1061731390:AAGCU813ySLv2OqioBfLuJz7B8-bkW3tqmw'
 
