@@ -165,8 +165,21 @@ def command_default(m):
     cv2.waitKey(0)
     barcodes = decode(image)
     print barcodes
+    
+    for barcode in barcodes:
+        (x,y,w,h) = barcode.rect
+        cv2.rectangle(image, (x,y), (x+w, y+h), (0, 0, 255), 2)
+        barcodeData = barcode.data.decode("utf-8")
+        barcodeType = barcode.type
+        text = "{} ({})".format(barcodeData, barcodeType)
+        print(text)
+        cv2.putText(image, text, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+        r = requests.get('http://openlibrary.org/api/books?bibkeys=ISBN:'+barcodeData+"&format=json&jscmd=data")
+        print(r.json()['ISBN:'+barcodeData]['title'])
+        print('----by----')
+        print(r.json()['ISBN:'+barcodeData]['authors'][0]['name'])
 
-    #isbndata=editions(bardata, service='merge')
+    isbndata=editions(barcodeData, service='merge')
     
     
     
