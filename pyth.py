@@ -158,8 +158,8 @@ def command_default(m):
     
     decodeval=(decode(Image.open('xyz.jpeg')))
     bardata=decodeval[0].data
-    print bardata
-    isbndata=editions(bardata, service='merge')
+    #print bardata
+    #isbndata=editions(bardata, service='merge')
     
     
     
