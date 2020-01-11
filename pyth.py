@@ -160,14 +160,15 @@ def command_default(m):
     urllib.urlretrieve(file, "xyz.jpeg")  
     
     decodeval=(decode(Image.open('xyz.jpeg')))
-    #bardata=decodeval[0].data
+    bardata=decodeval[0].data
     #print bardata
     image = cv2.imread('xyz.jpeg')
    #cv2.imshow("xyz.jpeg", image)
     cv2.waitKey(0)
     barcodes = decode(image)
     print barcodes
-    
+    isbndata=editions(barcodeData, service='merge')  
+    print isbndata
     for barcode in barcodes:
         (x,y,w,h) = barcode.rect
         cv2.rectangle(image, (x,y), (x+w, y+h), (0, 0, 255), 2)
@@ -180,8 +181,7 @@ def command_default(m):
         print(r.json()['ISBN:'+barcodeData]['title'])
         print('----by----')
         print(r.json()['ISBN:'+barcodeData]['authors'][0]['name'])
-
-    isbndata=editions(barcodeData, service='merge')
+      
     
     
     
