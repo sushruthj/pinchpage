@@ -152,9 +152,10 @@ def command_default(m):
     file ="https://api.telegram.org/file/bot"+TOKEN+"/"+file_info.file_path
     bot.send_message(m.chat.id, file)
     
-    outfile="./home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
-    urllib.urlretrieve(file, outfile)  
-    
+  #  outfile="./home/susruthanvesh/tbt/pics/"+fileID+".jpeg"  
+  #  urllib.urlretrieve(file, outfile)  
+    image_pygame_surface = pygame.image.load(file)
+    return pygame.surfarray.array3d(image_pygame_surface) 
     
     from scipy import misc
     filereq = requests.get(outfile)
